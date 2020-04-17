@@ -1,0 +1,10 @@
+<button
+  [disabled]="!allowButtonPress"
+  class="btn btn-primary"
+  (click)="onCreateServer()"
+>
+  Press Me
+</button>
+<div>{{ serverCreationStation }}</div>
+<app-server></app-server>
+<app-server></app-server>

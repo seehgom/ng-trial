@@ -5,17 +5,25 @@ github:
   prebuilds:
     # enable for the master/default branch (defaults to true)
     master: true
-    # enable for all branches in this repo (defaults to false)
+# enable for all branches in this repo (defaults to false)
     branches: true
-    # enable for pull requests coming from this repo (defaults to true)
+# enable for pull requests coming from this repo (defaults to true)
     pullRequests: true
-    # enable for pull requests coming from forks (defaults to false)
+# enable for pull requests coming from forks (defaults to false)
     pullRequestsFromForks: true
-    # add a "Review in Gitpod" button as a comment to pull requests (defaults to true)
+# add a "Review in Gitpod" button as a comment to pull requests (defaults to true)
     addComment: true
-    # add a "Review in Gitpod" button to pull requests (defaults to false)
+# add a "Review in Gitpod" button to pull requests (defaults to false)
     addBadge: false
-    # add a label once the prebuild is ready to pull requests (defaults to false)
+# add a label once the prebuild is ready to pull requests (defaults to false)
     addLabel: prebuilt-in-gitpod
 image:
   file: .gitpod.Dockerfile
+
+vscode:
+  extensions:
+    - eg2.tslint@1.0.44:3C/9/4VxeLePYcf3QXEZsQ==
+    - steoates.autoimport@1.5.3:ssEPucpXsRjqSbJX1bW0YA==
+    - johnpapa.angular-essentials@9.0.1:QnvMKdKzQcqN7DRy+v9ggA==
+    - ms-azuretools.vscode-docker@1.0.0:o4JHmJJeh+tjjl4bEqFtqg==
+    - streetsidesoftware.code-spell-checker@1.8.0:pOcw5Mko+D583rMKG2b1PQ==

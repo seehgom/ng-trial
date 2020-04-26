@@ -8,5 +8,9 @@ const { log } = console;
 })
 export class AppComponent implements OnInit {
   title = 'ng-trial';
+  currentRoute = 'list';
   ngOnInit(): void {}
+  navigate(path: string) {
+    this.currentRoute = path;
+  }
 }

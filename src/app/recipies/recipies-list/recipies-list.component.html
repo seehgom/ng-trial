@@ -7,7 +7,10 @@
 <div class="row">
   <div class="col-xs-12">
     <span *ngFor="let recipe of recipes">
-      <app-recipies-item [recipe]="recipe"></app-recipies-item>
+      <app-recipies-item
+        [recipe]="recipe"
+        (click)="recipeSelected(recipe, $event)"
+      ></app-recipies-item>
     </span>
   </div>
 </div>

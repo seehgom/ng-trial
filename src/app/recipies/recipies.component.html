@@ -1,8 +1,16 @@
 <div class="row">
   <div class="col-md-5">
-    <app-recipies-list></app-recipies-list>
+    <app-recipies-list
+      (expandRecipe)="showRecipeDetail($event)"
+    ></app-recipies-list>
   </div>
   <div class="col-md-7">
-    <app-recipies-detail></app-recipies-detail>
+    <app-recipies-detail
+      *ngIf="recipeDetailed; else noRecipeSelected"
+      [recipe]="recipeDetailed"
+    ></app-recipies-detail>
+    <ng-template #noRecipeSelected>
+      <p>Please Select a recipe</p>
+    </ng-template>
   </div>
 </div>

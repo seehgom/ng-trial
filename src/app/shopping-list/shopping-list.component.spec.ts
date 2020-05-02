@@ -2,24 +2,22 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import {
   ShoppingListComponent,
-  logWith1,
-  logWith2,
+  // logWith1,
+  // logWith2,
 } from './shopping-list.component';
 
 describe('logWith', () => {
   beforeEach(() => {
     spyOn(console, 'log');
   });
-  it('logWith1', () => {
-    logWith1(console.log)('className')('method');
-    debugger;
-    expect(console.log).toHaveBeenCalledWith('className:method');
-  });
-  fit('logWith2', () => {
-    logWith2(console.log)('className')('method');
-    debugger;
-    expect(console.log).toHaveBeenCalledWith('className:method');
-  });
+  // it('logWith1', () => {
+  //   logWith1(console.log)('className')('method');
+  //   expect(console.log).toHaveBeenCalledWith('className:method');
+  // });
+  // fit('logWith2', () => {
+  //   logWith2(console.log)('className')('method');
+  //   expect(console.log).toHaveBeenCalledWith('className:method');
+  // });
 });
 describe('ShoppingListComponent', () => {
   let component: ShoppingListComponent;

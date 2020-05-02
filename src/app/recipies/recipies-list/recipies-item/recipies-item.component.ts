@@ -30,7 +30,6 @@ export class RecipiesItemComponent implements OnInit, OnChanges, DoCheck {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    debugger;
     log(
       this.constructor.name + '=>ngOnChanges{' + JSON.stringify(changes) + '}'
     );

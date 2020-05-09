@@ -12,6 +12,25 @@ import { RecipiesDetailComponent } from './recipies/recipies-detail/recipies-det
 import { RecipiesItemComponent } from './recipies/recipies-list/recipies-item/recipies-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { RecipiesService } from './recipies/recipies.service';
+import { Route, RouterModule } from '@angular/router';
+
+const routes: Route[] = [
+  {
+    path: 'recipe',
+    component: RecipiesComponent,
+  },
+  {
+    path: 'list',
+    component: ShoppingListComponent,
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'recipe',
+  },
+];
 
 @NgModule({
   declarations: [
@@ -25,8 +44,8 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
     ShoppingEditComponent,
     DropdownDirective,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
+  providers: [ShoppingListService, RecipiesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

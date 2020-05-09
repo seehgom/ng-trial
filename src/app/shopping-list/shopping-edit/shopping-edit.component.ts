@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Ingredient } from '../../shared/ingredient.model';
+import { ShoppingListService } from '../shopping-list.service';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -7,13 +8,7 @@ import { Ingredient } from '../../shared/ingredient.model';
   styleUrls: ['./shopping-edit.component.scss'],
 })
 export class ShoppingEditComponent implements OnInit {
-  @Output()
-  ingredientChangeEvent = new EventEmitter<{
-    update: string;
-    ingredient?: Ingredient;
-  }>();
-
-  constructor() {}
+  constructor(private shoppingListService: ShoppingListService) {}
 
   ngOnInit(): void {}
 
@@ -21,8 +16,7 @@ export class ShoppingEditComponent implements OnInit {
     ingredientName: HTMLInputElement,
     ingredientAmount: HTMLInputElement
   ) {
-    debugger;
-    this.ingredientChangeEvent.emit({
+    this.shoppingListService.updateIngredients({
       update: 'Add',
       ingredient: new Ingredient(
         ingredientName.value,
@@ -35,7 +29,7 @@ export class ShoppingEditComponent implements OnInit {
     ingredientName: HTMLInputElement,
     ingredientAmount: HTMLInputElement
   ) {
-    this.ingredientChangeEvent.emit({
+    this.shoppingListService.updateIngredients({
       update: 'Delete',
       ingredient: new Ingredient(
         ingredientName.value,
@@ -45,6 +39,6 @@ export class ShoppingEditComponent implements OnInit {
   }
 
   clearIngredients() {
-    this.ingredientChangeEvent.emit({ update: 'Clear' });
+    this.shoppingListService.updateIngredients({ update: 'Clear' });
   }
 }

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Recipe } from '../recipe';
+import { RecipiesService } from '../recipies.service';
 
 @Component({
   selector: 'app-recipies-list',
@@ -7,25 +8,14 @@ import { Recipe } from '../recipe';
   styleUrls: ['./recipies-list.component.scss'],
 })
 export class RecipiesListComponent implements OnInit {
-  @Output()
-  expandRecipe = new EventEmitter<Recipe>();
-  recipes: Recipe[] = [
-    new Recipe(
-      'Test Recipe',
-      'This is a test',
-      'https://www.acouplecooks.com/wp-content/uploads/2019/03/Mushroom-Pasta-007.jpg'
-    ),
-    new Recipe(
-      'Another Test Recipe',
-      'This is another test',
-      'https://www.acouplecooks.com/wp-content/uploads/2019/03/Mushroom-Pasta-007.jpg'
-    ),
-  ];
-  constructor() {}
+  recipes: Recipe[] = [];
+  constructor(private recipiesService: RecipiesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.recipes = this.recipiesService.getState().recipies;
+  }
 
   recipeSelected(recipe: Recipe, $event: MouseEvent) {
-    this.expandRecipe.emit(recipe);
+    this.recipiesService.selectARecipe(recipe);
   }
 }

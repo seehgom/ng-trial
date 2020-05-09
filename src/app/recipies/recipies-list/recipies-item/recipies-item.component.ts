@@ -17,25 +17,11 @@ const { log } = console;
 export class RecipiesItemComponent implements OnInit, OnChanges, DoCheck {
   @Input() recipe: Recipe;
 
-  constructor() {
-    log(this.constructor.name + '=>constructor');
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-    log(
-      this.constructor.name +
-        '=>ngOnInit::recipe=' +
-        JSON.stringify(this.recipe)
-    );
-  }
+  ngOnInit(): void {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    log(
-      this.constructor.name + '=>ngOnChanges{' + JSON.stringify(changes) + '}'
-    );
-  }
+  ngOnChanges(changes: SimpleChanges): void {}
 
-  ngDoCheck(): void {
-    log(this.constructor.name + '=>ngDoCheck');
-  }
+  ngDoCheck(): void {}
 }

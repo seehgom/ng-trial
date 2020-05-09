@@ -1,12 +1,25 @@
-import { Directive, HostListener, HostBinding } from '@angular/core';
-import { concat } from 'ramda';
+import {
+  Directive,
+  HostListener,
+  HostBinding,
+  ElementRef,
+} from '@angular/core';
+import {
+  append,
+  applyTo,
+  concat,
+  equals,
+  ifElse,
+  includes,
+  reject,
+} from 'ramda';
 
 @Directive({
   selector: '[appDropdown]',
 })
 export class DropdownDirective {
-  @HostBinding('class') classes: string;
-  @HostListener('click') click() {
-    this.classes = this.classes + ' open';
+  @HostBinding('class.open') isOpen = false;
+  @HostListener('click') toggleOpen() {
+    this.isOpen = !this.isOpen;
   }
 }

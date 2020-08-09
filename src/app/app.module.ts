@@ -15,6 +15,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { RecipiesService } from './recipies/recipies.service';
 import { Route, RouterModule } from '@angular/router';
+import { HighLightDirective } from './directives/high-light.directive';
 
 const routes: Route[] = [
   {
